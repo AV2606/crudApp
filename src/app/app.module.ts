@@ -10,13 +10,20 @@ import { CoursesComponent } from './components/courses/courses.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MenuComponent } from './components/menu/menu.component';
 import { FormsModule, NgModel } from '@angular/forms';
+import { AddCourseComponent } from './components/add-course/add-course.component';
+import { DeleteCourseComponent } from './components/delete-course/delete-course.component';
+import { EditCourseComponent } from './components/edit-course/edit-course.component';
+import {HttpClientModule} from '@angular/common/http'
 
 const appRoutes:Routes=[
   {path:'',component:LoginComponent},
   {path:'login',component:LoginComponent},
   {path:'dashboard',component:DashboardComponent},
   {path:'courses',component:CoursesComponent},
-  {path:'menu', component:MenuComponent}
+  {path:'menu', component:MenuComponent},
+  {path:'courses/add-course', component:AddCourseComponent},
+  {path:'courses/delete/:id',component:DeleteCourseComponent},
+  {path:'courses/edit/:id',component:EditCourseComponent}
 ];
 
 
@@ -27,14 +34,17 @@ const appRoutes:Routes=[
     LoginComponent,
     DashboardComponent,
     CoursesComponent,
-    MenuComponent
+    MenuComponent,
+    AddCourseComponent,
+    DeleteCourseComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
+    HttpClientModule,
     //NgModel
   ],
   providers: [],
